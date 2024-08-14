@@ -1,0 +1,128 @@
+[
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "!Ferary_666!",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Boss",
+      "last_name": "Of the World",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-14T20:08:57.018Z",
+      "email": "aligarh@luxary.ru",
+      "phone": "777",
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$ScmDM7hRHoUEJDaS3PjNrJ$GdjFWJ0INGQut/4OsQgPChzPE728tXybAc3tKdtZ9fk=",
+      "last_login": null,
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "SkyPro",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-08-14T20:39:33.321Z",
+      "email": "admin@sky.pro",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.payments",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "date": "2024-08-13T21:56:12Z",
+      "paid_course": 3,
+      "paid_lesson": null,
+      "payment_amount": 25000,
+      "payment_method": "card"
+    }
+  },
+  {
+    "model": "users.payments",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "date": "2024-08-14T19:18:11Z",
+      "paid_course": 4,
+      "paid_lesson": null,
+      "payment_amount": 100000,
+      "payment_method": "cash"
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 3,
+    "fields": {
+      "title": "Курсы по вождению",
+      "preview": "",
+      "description": null
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 4,
+    "fields": {
+      "title": "Как стать успешным",
+      "preview": "",
+      "description": null
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 3,
+    "fields": {
+      "title": "Урок 1. Устройство автомобиля",
+      "description": null,
+      "preview": "",
+      "video_url": null,
+      "course": 3
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 4,
+    "fields": {
+      "title": "Урок 2. Принцип работы двигателя",
+      "description": null,
+      "preview": "",
+      "video_url": null,
+      "course": 3
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 5,
+    "fields": {
+      "title": "Урок 1. Работать",
+      "description": null,
+      "preview": "",
+      "video_url": null,
+      "course": 4
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 6,
+    "fields": {
+      "title": "Урок 2. Еще раз работать",
+      "description": null,
+      "preview": "",
+      "video_url": null,
+      "course": 4
+    }
+  }
+]
