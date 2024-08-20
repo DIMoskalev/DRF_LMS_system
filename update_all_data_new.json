@@ -1,0 +1,737 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2024-08-18T10:01:47.695Z",
+    "user": 3,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "moders",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2024-08-18T10:01:58.743Z",
+    "user": 3,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "test1@test.ru",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2024-08-18T10:02:27.721Z",
+    "user": 3,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "test1@test.ru",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2024-08-18T10:48:06.626Z",
+    "user": 3,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "test1@test.ru",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2024-08-18T11:01:16.416Z",
+    "user": 3,
+    "content_type": 6,
+    "object_id": "4",
+    "object_repr": "test@test.ru",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add Пользователь",
+    "content_type": 6,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change Пользователь",
+    "content_type": 6,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete Пользователь",
+    "content_type": 6,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view Пользователь",
+    "content_type": 6,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Курс",
+    "content_type": 7,
+    "codename": "add_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Курс",
+    "content_type": 7,
+    "codename": "change_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Курс",
+    "content_type": 7,
+    "codename": "delete_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Курс",
+    "content_type": 7,
+    "codename": "view_course"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add Урок",
+    "content_type": 8,
+    "codename": "add_lesson"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change Урок",
+    "content_type": 8,
+    "codename": "change_lesson"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete Урок",
+    "content_type": 8,
+    "codename": "delete_lesson"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view Урок",
+    "content_type": 8,
+    "codename": "view_lesson"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add Платеж",
+    "content_type": 9,
+    "codename": "add_payments"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change Платеж",
+    "content_type": 9,
+    "codename": "change_payments"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete Платеж",
+    "content_type": 9,
+    "codename": "delete_payments"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view Платеж",
+    "content_type": 9,
+    "codename": "view_payments"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add Подписка",
+    "content_type": 10,
+    "codename": "add_subscribe"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change Подписка",
+    "content_type": 10,
+    "codename": "change_subscribe"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete Подписка",
+    "content_type": 10,
+    "codename": "delete_subscribe"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view Подписка",
+    "content_type": 10,
+    "codename": "view_subscribe"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "moders",
+    "permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "users",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "materials",
+    "model": "course"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "materials",
+    "model": "lesson"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "users",
+    "model": "payments"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "materials",
+    "model": "subscribe"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6igglkvoj5lup8m2jzqpc1gs4p0oalo9",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8Oji4dN9vINMBpGogKe3K-O_apAvd3nPOfYlA21rC1tMS5iguworT7zYRP1LdQbxTvTXJra7LPMldkQftcmwxPa-H-3dQqJdvTQrBJwbIyWhUZshqYPTsHSiwCNmjsZw5-mwsJo9ICs4EWWtk50i8P8nnNzc:1sfcNX:M7dk1_0uLnQum-pm1LfvdJNn4geuOjIhCDqMjg1Ds-0",
+    "expire_date": "2024-09-01T09:39:15.117Z"
+  }
+},
+{
+  "model": "users.user",
+  "pk": 2,
+  "fields": {
+    "password": "ferary",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "Boss",
+    "last_name": "Of the World",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-14T20:08:57.018Z",
+    "email": "aligarh@luxary.ru",
+    "phone": "777",
+    "city": null,
+    "avatar": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$ScmDM7hRHoUEJDaS3PjNrJ$GdjFWJ0INGQut/4OsQgPChzPE728tXybAc3tKdtZ9fk=",
+    "last_login": "2024-08-18T09:39:15.103Z",
+    "is_superuser": true,
+    "first_name": "Admin",
+    "last_name": "SkyPro",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-08-14T20:39:33.321Z",
+    "email": "admin@sky.pro",
+    "phone": null,
+    "city": null,
+    "avatar": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$MT54TTRqaBdNqppyW6WMig$ZYmHMUWUJauX49EyzNAOh9Ht+GkFR5rzotjUHD2+/WE=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "moder",
+    "last_name": "moderov",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-18T09:57:52Z",
+    "email": "test1@test.ru",
+    "phone": null,
+    "city": null,
+    "avatar": "",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$6J0ZyxwsxP9PSRR9f7Gc3Z$QRM+g2tw/vC9P1qjp8UJbhnF1IH5vj0slkNyaRwyfIU=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-18T11:01:42.899Z",
+    "email": "test@sky.pro",
+    "phone": null,
+    "city": null,
+    "avatar": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$xKs4oBhoKZ0xw1HeNp3N8a$9y0MgZfvkzvtxayb5BWNa+a9JV0k1lGlp/AmT6S7iy8=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-18T11:06:43.657Z",
+    "email": "twst@sky.pro",
+    "phone": null,
+    "city": null,
+    "avatar": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.payments",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "date": "2024-08-13T21:00:00Z",
+    "paid_course": 3,
+    "paid_lesson": null,
+    "payment_amount": 25000,
+    "payment_method": "card"
+  }
+},
+{
+  "model": "users.payments",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "date": "2024-08-14T21:00:00Z",
+    "paid_course": 4,
+    "paid_lesson": null,
+    "payment_amount": 100000,
+    "payment_method": "cash"
+  }
+},
+{
+  "model": "materials.course",
+  "pk": 3,
+  "fields": {
+    "title": "Курсы по вождению",
+    "preview": "",
+    "description": null,
+    "owner": 5
+  }
+},
+{
+  "model": "materials.course",
+  "pk": 4,
+  "fields": {
+    "title": "Как стать успешным",
+    "preview": "",
+    "description": null,
+    "owner": 7
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 3,
+  "fields": {
+    "title": "Урок 1. Устройство автомобиля",
+    "description": null,
+    "preview": "",
+    "video_url": "http://sky.pro/sdfsdf",
+    "course": 3,
+    "owner": 5
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 4,
+  "fields": {
+    "title": "Урок 2. Принцип работы двигателя",
+    "description": null,
+    "preview": "",
+    "video_url": null,
+    "course": 3,
+    "owner": 5
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 5,
+  "fields": {
+    "title": "Урок 1. Работать",
+    "description": null,
+    "preview": "",
+    "video_url": null,
+    "course": 4,
+    "owner": 7
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 6,
+  "fields": {
+    "title": "Урок 2. Еще раз работать",
+    "description": null,
+    "preview": "",
+    "video_url": null,
+    "course": 4,
+    "owner": 7
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 7,
+  "fields": {
+    "title": "Урок 2",
+    "description": "Подбор хороших материалов для вязания",
+    "preview": "",
+    "video_url": null,
+    "course": 4,
+    "owner": 7
+  }
+},
+{
+  "model": "materials.subscribe",
+  "pk": 2,
+  "fields": {
+    "user": 7,
+    "course": 4
+  }
+}
+]
