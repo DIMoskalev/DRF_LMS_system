@@ -36,7 +36,6 @@ class LessonTestCaseOwner(APITestCase):
             "owner": self.user.pk,
         }
         response = self.client.post(url, data)
-        print(Lesson.objects.all())
         self.assertEqual(
             response.status_code, status.HTTP_201_CREATED
         )
@@ -104,7 +103,7 @@ class LessonTestCaseNotOwner(APITestCase):
         self.user = User.objects.create(email="admin@sky.pro")
         self.course = Course.objects.create(title="Вязание", description="Курсы вязания крестиком для начинающих", )
         self.lesson = Lesson.objects.create(title="Урок 1", description="Ознакомительный(вводный) урок",
-                                            course=self.course,)
+                                            course=self.course, )
         self.client.force_authenticate(user=self.user)
 
     def test_lesson_retrieve(self):
@@ -124,7 +123,6 @@ class LessonTestCaseNotOwner(APITestCase):
             "owner": self.user.pk,
         }
         response = self.client.post(url, data)
-        print(Lesson.objects.all())
         self.assertEqual(
             response.status_code, status.HTTP_201_CREATED
         )
@@ -186,6 +184,70 @@ class LessonTestCaseNotOwner(APITestCase):
         )
 
 
+class LessonTestCaseNotAuthenticate(APITestCase):
+
+    def setUp(self):
+        self.user = User.objects.create(email="admin@sky.pro")
+        self.course = Course.objects.create(title="Вязание", description="Курсы вязания крестиком для начинающих", )
+        self.lesson = Lesson.objects.create(title="Урок 1", description="Ознакомительный(вводный) урок",
+                                            course=self.course, )
+
+    def test_lesson_retrieve(self):
+        url = reverse("materials:lesson-retrieve", args=(self.lesson.pk,))
+        response = self.client.get(url)
+
+        self.assertEqual(
+            response.status_code, status.HTTP_401_UNAUTHORIZED
+        )
+
+    def test_lesson_create(self):
+        url = reverse("materials:lesson-create")
+        data = {
+            "title": "Урок 2",
+            "description": "Подбор хороших материалов для вязания",
+            "course": self.course.pk,
+            "owner": self.user.pk,
+        }
+        response = self.client.post(url, data)
+        self.assertEqual(
+            response.status_code, status.HTTP_401_UNAUTHORIZED
+        )
+        self.assertEqual(
+            Lesson.objects.all().count(), 1
+        )
+
+    def test_lesson_update(self):
+        url = reverse("materials:lesson-update", args=(self.lesson.pk,))
+        data = {
+            "title": "Новая версия 1го урока",
+        }
+        response = self.client.patch(url, data)
+        self.assertEqual(
+            response.status_code, status.HTTP_401_UNAUTHORIZED
+        )
+        self.assertEqual(
+            Lesson.objects.get(pk=self.lesson.pk).title, "Урок 1"
+        )
+
+    def test_lesson_delete(self):
+        url = reverse("materials:lesson-delete", args=(self.lesson.pk,))
+        response = self.client.delete(url)
+        self.assertEqual(
+            response.status_code, status.HTTP_401_UNAUTHORIZED
+        )
+        self.assertEqual(
+            Lesson.objects.all().count(), 1
+        )
+
+    def test_lessons_list(self):
+        url = reverse("materials:lessons-list")
+        response = self.client.get(url)
+
+        self.assertEqual(
+            response.status_code, status.HTTP_401_UNAUTHORIZED
+        )
+
+
 class SubscribeTestCase(APITestCase):
 
     def setUp(self):
@@ -200,7 +262,6 @@ class SubscribeTestCase(APITestCase):
         url = reverse("materials:subscribe")
         data = {
             "course": self.course.pk,
-            "user": self.user.pk,
         }
         response = self.client.post(url, data)
 
@@ -216,7 +277,6 @@ class SubscribeTestCase(APITestCase):
         Subscribe.objects.create(user=self.user, course=self.course)
         data = {
             "course": self.course.pk,
-            "user": self.user.pk,
         }
         response = self.client.post(url, data)
 
@@ -225,4 +285,37 @@ class SubscribeTestCase(APITestCase):
         )
         self.assertEqual(
             response.data.get("message"), "Подписка удалена"
+        )
+
+
+class SubscribeTestCaseNotAuthenticate(APITestCase):
+
+    def setUp(self):
+        self.user = User.objects.create(email="admin@sky.pro")
+        self.course = Course.objects.create(title="Вязание", description="Курсы вязания крестиком для начинающих",
+                                            owner=self.user)
+        self.lesson = Lesson.objects.create(title="Урок 1", description="Ознакомительный(вводный) урок",
+                                            course=self.course, owner=self.user)
+
+    def test_subscribe_create(self):
+        url = reverse("materials:subscribe")
+        data = {
+            "course": self.course.pk,
+        }
+        response = self.client.post(url, data)
+
+        self.assertEqual(
+            response.status_code, status.HTTP_401_UNAUTHORIZED
+        )
+
+    def test_subscribe_delete(self):
+        url = reverse("materials:subscribe")
+        Subscribe.objects.create(user=self.user, course=self.course)
+        data = {
+            "course": self.course.pk,
+        }
+        response = self.client.post(url, data)
+
+        self.assertEqual(
+            response.status_code, status.HTTP_401_UNAUTHORIZED
         )

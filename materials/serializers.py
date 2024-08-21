@@ -16,9 +16,16 @@ class LessonSerializer(serializers.ModelSerializer):
 class CourseSerializer(serializers.ModelSerializer):
     count_lessons = SerializerMethodField()
     lessons = LessonSerializer(many=True, source='lesson_set', required=False)
+    subscribe = serializers.SerializerMethodField(read_only=True)
 
     def get_count_lessons(self, obj):
         return obj.lesson_set.count()
+
+    def get_subscribe(self, obj):
+        request = self.context.get('request')
+        if request and request.user.is_authenticated:
+            return Subscribe.objects.filter(user=request.user, course=obj).exists()
+        return False
 
     class Meta:
         model = Course
@@ -29,3 +36,12 @@ class SubscribeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subscribe
         fields = '__all__'
+
+    def to_representation(self, obj):
+        request = self.context.get('request')
+        if request:
+            user = request.user
+            if user.is_staff or obj.user == user:
+                return super().to_representation(obj)
+            return {'message': 'Недостаточно прав для просмотра информации о подписках.'}
+        return super().to_representation(obj)

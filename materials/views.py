@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework.generics import (CreateAPIView, DestroyAPIView,
                                      ListAPIView, RetrieveAPIView,
                                      UpdateAPIView, get_object_or_404)
@@ -70,17 +71,27 @@ class LessonDestroyAPIView(DestroyAPIView):
 
 class SubscribeAPIView(APIView):
     serializer_class = SubscribeSerializer
+    permission_classes = (IsAuthenticated,)
 
     def post(self, *args, **kwargs):
         user = self.request.user
         course_id = self.request.data.get("course")
         course_item = get_object_or_404(Course, pk=course_id)
-        subs_item = Subscribe.objects.all().filter(user=user).filter(course=course_item)
+        subs_item = Subscribe.objects.all().filter(user=user, course=course_item)
 
         if subs_item.exists():
             subs_item.delete()
             message = "Подписка удалена"
+            return Response({"message": message})
         else:
-            Subscribe.objects.create(user=user, course=course_item)
             message = "Подписка добавлена"
         return Response({"message": message})
+
+    def get(self, *args, **kwargs):
+        user = self.request.user
+        if user.is_staff:
+            subscribe = Subscribe.objects.all()
+        else:
+            subscribe = Subscribe.objects.filter(user=user)
+        serializer = SubscribeSerializer(subscribe, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
