@@ -1,3 +1,5 @@
+from django.utils.decorators import method_decorator
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.generics import (CreateAPIView, DestroyAPIView,
                                      ListAPIView, RetrieveAPIView,
@@ -13,7 +15,23 @@ from materials.serializers import CourseSerializer, LessonSerializer, SubscribeS
 from users.permissions import IsModer, IsOwner
 
 
+@method_decorator(name='create', decorator=swagger_auto_schema(
+    operation_description="Создание курса"
+))
+@method_decorator(name='list', decorator=swagger_auto_schema(
+    operation_description="Список курсов"
+))
+@method_decorator(name='retrieve', decorator=swagger_auto_schema(
+    operation_description="Подробная информация о курсе"
+))
+@method_decorator(name='update', decorator=swagger_auto_schema(
+    operation_description="Изменение курса"
+))
+@method_decorator(name='destroy', decorator=swagger_auto_schema(
+    operation_description="Удаление курса"
+))
 class CourseViewSet(ModelViewSet):
+    """ Вьюсет для модели курсов """
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
     pagination_class = MaterialsPaginator
@@ -34,6 +52,7 @@ class CourseViewSet(ModelViewSet):
 
 
 class LessonCreateAPIView(CreateAPIView):
+    """ Создание урока """
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
     permission_classes = (~IsModer, IsAuthenticated,)
@@ -45,6 +64,7 @@ class LessonCreateAPIView(CreateAPIView):
 
 
 class LessonListAPIView(ListAPIView):
+    """ Список уроков """
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
     permission_classes = (IsAuthenticated, IsOwner | ~IsModer)
@@ -52,24 +72,28 @@ class LessonListAPIView(ListAPIView):
 
 
 class LessonRetrieveAPIView(RetrieveAPIView):
+    """ Просмотр урока """
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
     permission_classes = (IsAuthenticated, IsModer | IsOwner,)
 
 
 class LessonUpdateAPIView(UpdateAPIView):
+    """ Изменение урока """
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
     permission_classes = (IsAuthenticated, IsModer | IsOwner,)
 
 
 class LessonDestroyAPIView(DestroyAPIView):
+    """ Удаление урока """
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
     permission_classes = (IsAuthenticated, IsOwner,)
 
 
 class SubscribeAPIView(APIView):
+    """ Добавление и удаление подписки """
     serializer_class = SubscribeSerializer
     permission_classes = (IsAuthenticated,)
 
