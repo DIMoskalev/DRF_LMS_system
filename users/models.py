@@ -36,7 +36,6 @@ class User(AbstractUser):
 
 
 class Payments(models.Model):
-
     CASH = 'CASH'
     ONLINE = 'ONLINE'
     PAYMENT_METHODS = (
@@ -44,12 +43,15 @@ class Payments(models.Model):
         (ONLINE, 'Онлайн')
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Пользователь")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Пользователь", **NULLABLE)
     date = models.DateTimeField(auto_now_add=True, verbose_name='Дата оплаты')
     paid_course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='Оплаченный курс', **NULLABLE)
     paid_lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, verbose_name='Оплаченный урок', **NULLABLE)
-    payment_amount = models.IntegerField(verbose_name='Сумма оплаты')
-    payment_method = models.CharField(max_length=35, verbose_name='Метод оплаты', choices=PAYMENT_METHODS)
+    payment_amount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма платежа", **NULLABLE)
+    payment_method = models.CharField(max_length=35, verbose_name='Метод оплаты', choices=PAYMENT_METHODS,
+                                      default=ONLINE)
+    session_id = models.CharField(max_length=255, verbose_name="ID сессии", **NULLABLE, )
+    link = models.URLField(max_length=400, verbose_name="Ссылка на оплату", **NULLABLE, )
 
     def __str__(self):
         if self.paid_course:

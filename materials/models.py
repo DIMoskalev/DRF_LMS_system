@@ -26,6 +26,8 @@ class Course(models.Model):
         **NULLABLE,
         help_text="Укажите владельца курса"
     )
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена курса",
+                                help_text="Укажите цену курса в рублях")
 
     def __str__(self):
         return self.title
@@ -63,6 +65,8 @@ class Lesson(models.Model):
         **NULLABLE,
         help_text="Укажите владельца урока"
     )
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена урока",
+                                help_text="Укажите цену урока в рублях")
 
     def __str__(self):
         return self.title
