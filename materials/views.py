@@ -97,6 +97,14 @@ class SubscribeAPIView(APIView):
     serializer_class = SubscribeSerializer
     permission_classes = (IsAuthenticated,)
 
+    @swagger_auto_schema(
+        operation_description="Добавление и удаление подписки на курс",
+        request_body=SubscribeSerializer(many=True),
+        responses={
+            200: "Успешное добавление или удаление подписки",
+            404: "Курс для подписки не найден",
+        },
+    )
     def post(self, *args, **kwargs):
         user = self.request.user
         course_id = self.request.data.get("course")
@@ -111,6 +119,12 @@ class SubscribeAPIView(APIView):
             message = "Подписка добавлена"
         return Response({"message": message})
 
+    @swagger_auto_schema(
+        operation_description="Список подписок пользователя",
+        responses={
+            200: "Список подписок пользователя",
+        },
+    )
     def get(self, *args, **kwargs):
         user = self.request.user
         if user.is_staff:
