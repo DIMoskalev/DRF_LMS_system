@@ -13,6 +13,7 @@ from materials.models import Course, Lesson, Subscribe
 from materials.paginators import MaterialsPaginator
 from materials.serializers import CourseSerializer, LessonSerializer, SubscribeSerializer
 from users.permissions import IsModer, IsOwner
+from materials.tasks import course_update_notification
 
 
 @method_decorator(name='create', decorator=swagger_auto_schema(
@@ -40,6 +41,10 @@ class CourseViewSet(ModelViewSet):
         course = serializer.save()
         course.owner = self.request.user
         course.save()
+
+    def perform_update(self, serializer):
+        course = serializer.save()
+        course_update_notification.delay(course.pk)
 
     def get_permissions(self):
         if self.action == "create":
@@ -117,6 +122,7 @@ class SubscribeAPIView(APIView):
             return Response({"message": message})
         else:
             message = "Подписка добавлена"
+            Subscribe.objects.create(user=user, course=course_item)
         return Response({"message": message})
 
     @swagger_auto_schema(
